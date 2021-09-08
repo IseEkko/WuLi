@@ -50,8 +50,6 @@ class Student extends Model
 
                 ->update(['grade' => $grade,'grade_xp' => $grade_xp]);
 
-
-
             return $res ?
                 $res :
                 false;
@@ -345,6 +343,79 @@ class Student extends Model
     }
 
 
+    public static function show5($student_id){
+        try {
+            $res = Student::
+            join('completion5', 'student.id', '=', 'completion5.student_id')
+                ->where('student.id', '=', $student_id)
+                ->select(
+                    'student.student_name',
+                    'student.student_level',
+                    'student.student_spec',
+                    'student.student_year',
+                    'student.student_class',
+                    'student.student_num',
+                    'student.experiment_name',
+                    'student.course_name',
+                    'student.student_date',
+                    'student.student_teacher',
+
+                    'student.grade',
+                    'student.grade_xp',
+
+                    'completion5.ra1',
+                    'completion5.ra2',
+                    'completion5.ra3',
+                    'completion5.rx_a1',
+                    'completion5.rx_a2',
+                    'completion5.rx_a3',
+                    'completion5.rx',
+                    'completion5.rb1',
+                    'completion5.rb2',
+                    'completion5.rb3',
+                    'completion5.ra_change1',
+                    'completion5.ra_change2',
+                    'completion5.ra_change3',
+                    'completion5.s1',
+                    'completion5.s2',
+                    'completion5.s3',
+                    'completion5.s',
+                    'completion5.rc1',
+                    'completion5.rc2',
+                    'completion5.rc3',
+                    'completion5.rx_b1',
+                    'completion5.rx_b2',
+                    'completion5.rx_b3',
+                    'completion5.rxx',
+                    'completion5.rd1',
+                    'completion5.rd2',
+                    'completion5.rd3',
+                    'completion5.rb_change1',
+                    'completion5.rb_change2',
+                    'completion5.rb_change3',
+                    'completion5.ss1',
+                    'completion5.ss2',
+                    'completion5.ss3',
+                    'completion5.ss',
+                    'completion5.xz1',
+                    'completion5.xz2',
+                    'completion5.pd1',
+                    'completion5.pd2'
+
+
+                )->get();
+
+
+
+            return $res ?
+                $res :
+                false;
+        } catch (\Exception $e) {
+            logError('搜索错误', [$e->getMessage()]);
+            return false;
+        }
+        echo 1;
+    }
 
 
 

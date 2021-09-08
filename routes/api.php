@@ -43,9 +43,7 @@ Route::prefix('bridge') -> group(function(){
     Route::post('completion','BridgeController@completion');//实验答题
     Route::get('pdf','BridgeController@pdf');//实验pdf
 
-
 });
-
 
 
 Route::prefix('experiment11')->group(function (){
@@ -58,6 +56,13 @@ Route::prefix('experiment11')->group(function (){
     Route::get('pdf11','Completion11Controller@pdf11');//实验11pdf
 
 });
+Route::prefix('experiment4')->group(function (){
+    /**
+     * @Author: yjx
+     */
+    Route::post('completion4','Completion4Controller@completion4');//实验4答题
+    Route::get('pdf4','Completion4Controller@pdf4');//实验4pdf
+});//yjx
 
 
 Route::prefix('pendulum')->group(function (){
@@ -81,6 +86,16 @@ Route::prefix('experiment1')->group(function (){
     Route::post('completion1','Completion1Controller@completion1');//实验1答题
 
     Route::get('pdf1','Completion1Controller@pdf1');//实验1pdf
+
+});
+Route::prefix('bridge1')->group(function (){
+    /**
+     * @Author: wzh
+     */
+
+    Route::post('completion5','Completion5Controller@completion5');//实验答题
+
+    Route::get('pdf5','Completion5Controller@pdf5');//实验pdf
 
 });
 

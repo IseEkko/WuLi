@@ -253,7 +253,7 @@ class ExperimentController extends Controller
         $mpdf = new Mpdf\Mpdf(['utf-8', 'A4', 16, '', 10, 10, 15, 15]);
 
 
-        $mpdf->showImageErrors = true;
+        //$mpdf->showImageErrors = true;
 
         $mpdf->WriteHTML($res);
 

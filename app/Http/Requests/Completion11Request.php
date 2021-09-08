@@ -3,8 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Contracts\Validation\Validator;
+
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
+
 
 class Completion11Request extends FormRequest
 {
@@ -49,7 +51,6 @@ class Completion11Request extends FormRequest
             'two_four_r4' => 'required',
             'two_four_rn4' => 'required',
             'two_four_r3' => 'required',
-
 
             'thr_one_r1' => 'required',
             'thr_one_ix' => 'required',

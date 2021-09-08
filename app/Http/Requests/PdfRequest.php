@@ -2,9 +2,11 @@
 
 namespace App\Http\Requests;
 
+
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+
 
 class PdfRequest extends FormRequest
 {
@@ -27,11 +29,15 @@ class PdfRequest extends FormRequest
     {
         return [
 
+            //
             'student_id' => 'required',
         ];
     }
+
+
     protected function failedValidation(Validator $validator){
 
         throw(new HttpResponseException(json_fail('参数错误',$validator->errors()->all(),422)));
     }
+
 }
