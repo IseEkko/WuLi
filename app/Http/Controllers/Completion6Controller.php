@@ -41,6 +41,7 @@ class Completion6Controller extends Controller
         $student_id = $request['student_id'];
         $grade_xp=$request['grade_xp'];
 
+        Student::statechange($student_id);
 
         $res1 = Completion6::establish(
             $ig1,
@@ -112,9 +113,9 @@ class Completion6Controller extends Controller
 
 
 
-    public function pdf6(Request $request)
+    public function pdf6($student_id)
     {
-        $student_id = $request['student_id'];
+        //$student_id = $request['student_id'];
 
         $student_a = Completion6::show6($student_id);
 
@@ -210,7 +211,7 @@ class Completion6Controller extends Controller
 
         $mpdf->WriteHTML($res);
 
-        $mpdf->Output('实验报告.pdf', "I");
+        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "I");
 
         exit;
     }

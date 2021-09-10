@@ -19,10 +19,30 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
+
+/**
+ * @Author: oys
+ */
+Route::prefix('experiment6')->group(function (){
+
+
+    Route::post('completion6','Completion6Controller@completion6');//实验6答题
+
+    Route::get('pdf6','Completion6Controller@pdf6');//实验6pdf
+
+});
+
+
+
+
+
+
+/**
+ * @Author: Alexcutest
+ */
+
 Route::prefix('experiment')->group(function (){
-    /**
-     * @Author: Alexcutest
-     */
+
     Route::post('student','ExperimentController@student');//学生信息
 
 
@@ -46,29 +66,43 @@ Route::prefix('bridge') -> group(function(){
 });
 
 
+/**
+ * @Author: pxy
+ */
 Route::prefix('experiment11')->group(function (){
-    /**
-     * @Author: pxy
-     */
+
 
     Route::post('completion11','Completion11Controller@completion11');//实验11答题
 
     Route::get('pdf11','Completion11Controller@pdf11');//实验11pdf
 
 });
+
+/**
+ * @Author: yjx
+ */
 Route::prefix('experiment4')->group(function (){
-    /**
-     * @Author: yjx
-     */
+
     Route::post('completion4','Completion4Controller@completion4');//实验4答题
     Route::get('pdf4','Completion4Controller@pdf4');//实验4pdf
 });//yjx
 
 
+/**
+ * @Author: yjx
+ */
+Route::prefix('experiment14')->group(function (){
+
+    Route::post('completion14','Completion14Controller@completion14');//实验14答题
+    Route::get('pdf14','Completion14Controller@pdf14');//实验14pdf
+});//yjx
+
+
+/**
+ * @Author: wzh
+ */
 Route::prefix('pendulum')->group(function (){
-    /**
-     * @Author: wzh
-     */
+
 
     Route::post('completion3','PendulumController@completion3');//实验答题
 
@@ -77,11 +111,14 @@ Route::prefix('pendulum')->group(function (){
 });
 
 
+/**
+ * @Author: pxy,zqz
+ */
+
+
 
 Route::prefix('experiment1')->group(function (){
-    /**
-     * @Author: pxy,zqz
-     */
+
 
     Route::post('completion1','Completion1Controller@completion1');//实验1答题
 
@@ -96,6 +133,16 @@ Route::prefix('bridge1')->group(function (){
     Route::post('completion5','Completion5Controller@completion5');//实验答题
 
     Route::get('pdf5','Completion5Controller@pdf5');//实验pdf
+
+});
+
+
+/**
+ * @Author: pxy
+ */
+Route::prefix('admin')->group(function (){
+
+    Route::get('home','AdminController@home');//审批中心主页
 
 });
 

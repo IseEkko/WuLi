@@ -122,6 +122,7 @@ class BridgeController extends Controller
 
         $grade = 0;
 
+        Student::statechange($student_id);
         if(0 < $ra1 && $ra1 < 9999){
             $grade += 2;
 
@@ -257,10 +258,10 @@ class BridgeController extends Controller
            json_fail('操作失败',null,100);
     }
 
-    public function pdf(PdfRequest $request)
+    public function pdf($student_id)
     {
 
-        $student_id = $request['student_id'];
+        //$student_id = $request['student_id'];
 
 
         $student_a = Student::show2($student_id);
@@ -390,7 +391,7 @@ class BridgeController extends Controller
 
         $mpdf->WriteHTML($res);
 
-        $mpdf->Output('实验报告.pdf', "I");
+        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "I");
 
         exit;
     }

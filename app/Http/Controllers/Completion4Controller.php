@@ -14,7 +14,6 @@ class Completion4Controller extends Controller
     /***
      * 牛顿环 -Completion4
      */
-
     public function completion4(Completion4Request $request){
         $n1 =$request['n1'];
         $n5 =$request['n5'];
@@ -72,6 +71,7 @@ class Completion4Controller extends Controller
 
         );
 
+        Student::statechange($student_id);
         $grade = 0;
         $grade_xp = 0;
 
@@ -181,10 +181,10 @@ class Completion4Controller extends Controller
             json_fail('操作失败!', null, 100);
     }
 
-    public function pdf4(PdfRequest $request)
+    public function pdf4($student_id)
     {
 
-        $student_id = $request['student_id'];
+        //$student_id = $request['student_id'];
 
         $student_a = Completion4::show($student_id);
         $student_b = json_decode($student_a);
@@ -277,7 +277,7 @@ class Completion4Controller extends Controller
 
         $mpdf->WriteHTML($res);
 
-        $mpdf->Output('实验报告.pdf', "I");
+        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "I");
 
         exit;
     }

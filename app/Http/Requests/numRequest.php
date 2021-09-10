@@ -2,13 +2,11 @@
 
 namespace App\Http\Requests;
 
-
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-
-class PdfRequest extends FormRequest
+class numRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,14 +26,11 @@ class PdfRequest extends FormRequest
     public function rules()
     {
         return [
-            //
-            'id' => 'required',
+            'student_num' => 'required'
         ];
     }
-
     protected function failedValidation(Validator $validator){
 
         throw(new HttpResponseException(json_fail('参数错误',$validator->errors()->all(),422)));
     }
-
 }

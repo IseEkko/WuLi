@@ -39,6 +39,7 @@ class Completion1Controller
             $r9,
             $r10
         );
+        Student::statechange($student_id);
         $grade = 0;
         $grade_xp = 0;
 
@@ -86,9 +87,9 @@ class Completion1Controller
     }
 
 
-    public function pdf1(PdfRequest $request)
+    public function pdf1($student_id)
     {
-        $student_id = $request['student_id'];
+        //$student_id = $request['student_id'];
 
         $student_a = Completion1::show($student_id);
 
@@ -156,7 +157,7 @@ class Completion1Controller
 
         $mpdf->WriteHTML($res);
 
-        $mpdf->Output('实验报告.pdf', "I");
+        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "I");
 
         exit;
     }

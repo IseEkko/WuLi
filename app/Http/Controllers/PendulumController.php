@@ -82,6 +82,7 @@ class PendulumController extends Controller
             $student_id
         );
 
+        Student::statechange($student_id);
         $grade=0;
         if (strlen(substr(strrchr($l1,"."),1)) == 2){
             $grade += 1;
@@ -203,10 +204,11 @@ class PendulumController extends Controller
 
     }
 
-    public function pdf3(Request $request)
+    public function pdf3($student_id)
     {
 
-        $student_id = $request['student_id'];
+        //$student_id = $request['student_id'];
+
         $student_a = Student::show3($student_id);
         $student_b = json_decode($student_a);
 
@@ -315,7 +317,7 @@ class PendulumController extends Controller
 
         $mpdf->WriteHTML($res);
 
-        $mpdf->Output('实验报告.pdf', "I");
+        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "I");
 
         exit;
     }

@@ -4,9 +4,9 @@
 
     <head>
 
-        <meta charset="utf-8">
+        <meta charset="utf-8">s
 
-        <title>实验项目</title>
+        <title>万用表改装设计实验</title>
 
         <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
 
@@ -121,16 +121,16 @@
 
 
             <h3>二、实验目的</h3>
-            <p>&nbsp; &nbsp; &nbsp;使用微安表500µA档位进行实验电路设计, 实现万用表的基本功能。要求改装后的万用表电流满偏量程为10mA,电压满偏量程为5V和欧姆表量程比率为×1Ω.</p>
+            <p>&nbsp; &nbsp; &nbsp;使用微安表500µA档位进行实验电路设计, 实现万用表的基本功能。要求改装后的万用表电流满偏量程为10mA，电压满偏量程为5V和欧姆表量程比率为×1Ω。</p>
 
             <h3>三、实验仪器与设备</h3>
 
             <p>
-                ①	500µA微安表一个
+                ① 500µA微安表一个
                 <br>② 六档位多档开关一组
                 <br>③ 9999.9型电阻箱四个
                 <br>④ 红黑表笔一副
-                <br>⑤	1.5V电池一节
+                <br>⑤ 1.5V电池一节
                 <br>⑥ 单刀开关一个
                 <br>⑦ 待测信号箱
 
@@ -141,7 +141,7 @@
 
 
             <p>&nbsp; &nbsp; &nbsp;万用表实际上是一种多用途电表，由一个高灵敏度的电流表，配以不同的电路组成，只需通过多档转换开关，就可以测量电路的电流、电压，电阻等。 <br> &nbsp; &nbsp; &nbsp;根据《电表改装设计实验》的内容和原理，要将直流电流档扩程，直流电压档改装，欧姆档改装三者融合在一个电路中，以实现万用表的基本功能——即在此电路中，通过不同的测量挡位开关选择，达到测量电流、电压及电阻阻值的三项功能。 <br> &nbsp; &nbsp;
-                &nbsp;为此，根据提供的实验仪器与设备，我们设计了如图所示的电路原理图。在此电路的搭建过程中，按照先并联分流电阻R1，扩程直流电流档；再串联分压电阻R2,改装直流电压档；最后在电路中串并联电压源、校准电阻R3,调零电阻R4,单刀开关等设备后组装实现电路的欧姆档测量功能。
+                &nbsp;为此，根据提供的实验仪器与设备，我们设计了如图所示的电路原理图。在此电路的搭建过程中，按照先并联分流电阻R1，扩程直流电流档；再串联分压电阻R2，改装直流电压档；最后在电路中串并联电压源、校准电阻R3、调零电阻R4、单刀开关等设备后组装实现电路的欧姆档测量功能。
 
             </p>
             <p style="text-align:center">
@@ -157,7 +157,7 @@
 
             <h3>五、实验内容与步骤</h3>
             <p style="display: inline">
-                &nbsp; &nbsp; &nbsp;从微安表表盘读取表头满量程电流Ig和对应的表头内阻Rg,并机械调零。<br> &nbsp; &nbsp; &nbsp;1. 根据改装后的电流表满偏量程Im为10mA,电压表满偏量程Vm为5V和欧姆表量程比率为×1的要求，分别计算或调试出所需电流档分流电阻值R1,电压档分压电阻值R2,欧姆档调零电阻值R4,欧姆档校准电阻值R3.<br> &nbsp; &nbsp; &nbsp;2. 按照改装要求，连接电路，完成电阻箱阻值的调节，并分别测量出待测信号箱的未知电压Vx,电流Ix以及电阻值Rx.并记录数据。注意：
+                &nbsp; &nbsp; &nbsp;从微安表表盘读取表头满量程电流Ig和对应的表头内阻Rg，并机械调零。<br> &nbsp; &nbsp; &nbsp;1. 根据改装后的电流表满偏量程Im为10mA，电压表满偏量程Vm为5V和欧姆表量程比率为×1的要求，分别计算或调试出所需电流档分流电阻值R1、电压档分压电阻值R2、欧姆档调零电阻值R4、欧姆档校准电阻值R3。<br> &nbsp; &nbsp; &nbsp;2. 按照改装要求，连接电路，完成电阻箱阻值的调节，并分别测量出待测信号箱的未知电压Vx、电流Ix以及电阻值Rx。并记录数据。注意：
             </p>
             <p style="color:steelblue;display: inline">
                 测量电流和电压时，务必断开单刀开关，测量电阻时务必接通单刀开关。
@@ -182,12 +182,12 @@
                     </tr>
 
                     <tr>
-                        <th>标准表读数(V)</th>
-                        <td>{{$one_rg}}</td>
+                        <th>标准表读数（V）</th>
+                        <td>{{$one_rg}}}</td>
                         <td>Ω</td>
                     </tr>
                     <tr>
-                        <th>示值误差ΔU(V)</th>
+                        <th>示值误差ΔU（V）</th>
                         <td>{{$one_e}}</td>
                         <td>V</td>
                     </tr>
@@ -198,8 +198,7 @@
                 <p style="display:inline;">2.各电阻阻值设置计算</p>
                 <p style="display:inline;font-size: 15px;color: skyblue">（要求四舍五入精确到小数点后1位，每空3分，共54分）
                 </p>
-                <p style="display:inline;font-size: 15px;">（分数：{{$grade_xp}}）
-                </p>
+
                 <p>
 
                     1)分流电阻计算<br>
@@ -207,9 +206,7 @@
                         &nbsp; &nbsp; &nbsp;&nbsp;①仅闭合转换开关1，此时分流电阻计算公式为：R1=Rg×Ig/(Im-Ig)
                     </P>
                     <P>
-
                         &nbsp; &nbsp; &nbsp;&nbsp;②代入Rg={{$two_one_rg}}Ω；Ig={{$two_one_ig}}mA；Im={{$two_one_im}}mA
-
                     </P>
                     <P>
                         &nbsp; &nbsp; &nbsp;&nbsp;③计算出R1={{$two_one_r1}}Ω
@@ -218,12 +215,11 @@
                     <p>
                         2)分压电阻计算
                         <P>
-                            &nbsp; &nbsp; &nbsp;&nbsp;①根据电路图，此时微安表内阻为:Rn=Rg//R1={{$two_two_rn}}Ω;量程为:Im={{$two_two_im}}mA
+                            &nbsp; &nbsp; &nbsp;&nbsp;①根据电路图，此时微安表内阻为：Rn=Rg//R1={{$two_two_rn}}Ω；量程为：Im={{$two_two_im}}mA
                         </P>
                         <P>
-
-                            &nbsp; &nbsp; &nbsp;&nbsp;②仅闭合转换开关2，此时分压电阻计算公式为：R2=Vm/Im-Rn
-  </P>
+                            &nbsp; &nbsp; &nbsp;&nbsp;②仅闭合转换开关2，此时分压电阻计算公式为：R2=R2=Vm/Im-Rn
+                        </P>
                         <P>
                             &nbsp; &nbsp; &nbsp;&nbsp;③代入Vm={{$two_two_vm}}V,Im={{$two_two_im2}}mA,Rn={{$two_two_rn2}}Ω
                         </P>
@@ -235,21 +231,19 @@
                     <p>
                         3)调零电阻计算（理论值）
                         <P>
-
                             &nbsp; &nbsp; &nbsp;&nbsp;①根据电路图，仅闭合转换开关3，短接红黑表笔，此时调零电阻计算公式为：R4=E/Im-Rn
-
                         </P>
                         <P>
                             &nbsp; &nbsp; &nbsp;&nbsp;②代入E={{$two_thr_e}}V,Im={{$two_thr_im2}}mA,Rn={{$two_thr_rn}}Ω<br>
                         </P>
                         <P>
-                            &nbsp; &nbsp; &nbsp;&nbsp;③计算出R4={{$two_thr_r42}}Ω
+                            &nbsp; &nbsp; &nbsp;&nbsp;④计算出R4={{$two_thr_r42}}Ω
                         </P>
                     </p>
                     <p>
                         4)校准电阻计算（理论值）
                         <P>
-                            &nbsp; &nbsp; &nbsp;&nbsp;①根据电路图，仅闭合转换开关3和单刀开关，红黑表笔接100Ω电阻，此时校准电阻计算公式为:R3=[0.003×(R4+Rn)]/[(E-0.003×(R4+Rn))/100-0.003]
+                            &nbsp; &nbsp; &nbsp;&nbsp;①根据电路图，仅闭合转换开关3和单刀开关，红黑表笔接100Ω电阻，此时校准电阻计算公式为： R3=[0.003×(R4+Rn)]/[(E-0.003×(R4+Rn))/100-0.003]
                         </P>
                         <P>
                             &nbsp; &nbsp; &nbsp;&nbsp;②代入E={{$two_four_e}}V,R4={{$two_four_r4}}Ω,Rn={{$two_four_rn4}}Ω
@@ -266,86 +260,80 @@
                 <p style="display:inline;">3.万用表改装设计实验数据记录表</p>
                 <p style="display:inline;font-size: 15px;color: skyblue">（每空3分，共30分）
                 </p>
-                <p style="display:inline;font-size: 15px;">（分数：{{$grade_xp}}）
-                </p>
 
-              
-                    <table border="1" cellpadding="10" cellspacing="0" align="center"
-                    >
+
+                <p>
+                    <table border="1" cellpadding="10" cellspacing="0">
                         <tr>
                             <th rowspan="3" width="80px">电流档的扩展设计</th>
-                            <td width="70px">改装要求</td>
-                            <td colspan="3" width="50px">量程Im=10mA</td>
-                            <td rowspan="3" width="130px">表头指针偏转描述：<br> &nbsp; &nbsp; &nbsp;用改装好的电流档测量电流时，表头指针向右偏转，读数为，
-                               用此读数除以10再乘以改装后的电流表量程10mA，即为所测电流Ix的大小。
+                            <td width="80">改装要求</td>
+                            <td colspan="3">量程Im=10mA</td>
+                            <td rowspan="3">表头指针偏转描述：<br> &nbsp; &nbsp; &nbsp;用改装好的电流档测量电流时，表头指针向右偏转，读数为{{$thr_one_ds}}，用此读数除以100再乘以改装后的电流表量程10mA，即为所测电流Ix的大小。</td>
                         </tr>
 
                         <tr>
                             <td>改装计算</td>
-                            <td>分流电阻R1=111</td>
-                            <td></td>
+                            <td>分流电阻R1=</td>
+                            <td width="50px">{{$thr_one_r1}}</td>
                             <td>Ω</td>
                         </tr>
                         <tr>
                             <td>所测电流</td>
                             <td>Ix=</td>
-                            <td></td>
+                            <td>{{$thr_one_ix}}</td>
                             <td>mA</td>
                         </tr>
                         <tr>
-                            <th rowspan="3" width="80px">电压档的改装设计</th>
-                            <td width="70px">改装要求</td>
-                            <td colspan="3" width="50px">量程Vm=5V</td>
-                            <td rowspan="3" width="130px">表头指针偏转描述：<br> &nbsp; &nbsp; &nbsp; 用改装好的电压档测量电流时，表头指针向右偏转，读数为，
-                                用此读数除以20再乘以改装后的电压表量程5V，即为所测电压Vx的大小。
+                            <th rowspan="3">电压档的改装设计</th>
+                            <td>改装要求</td>
+                            <td colspan="3">量程Vm=5V</td>
+                            <td rowspan="3">表头指针偏转描述：<br> &nbsp; &nbsp; &nbsp; 用改装好的电压档测量电流时，表头指针向右偏转，读数为{{$thr_two_ds}}，用此读数除以100再乘以改装后的电压表量程5V，即为所测电压Vx的大小。
                             </td>
                         </tr>
 
                         <tr>
                             <td>改装计算</td>
                             <td>分压电阻R2=</td>
-                            <td></td>
+                            <td>{{$thr_two_r2}}</td>
                             <td>Ω</td>
                         </tr>
                         <tr>
                             <td>所测电压</td>
                             <td>Vx=</td>
-                            <td></td>
+                            <td>{{$thr_two_vx}}</td>
                             <td>V</td>
                         </tr>
                         <tr>
-                            <th rowspan="4" width="80px">欧姆档的改装设计</th>
-                            <td width="70px">改装要求</td>
-                            <td colspan="3" width="50px">量程比率×1Ω</td>
-                            <td rowspan="4" width="130px">表头指针偏转描述：<br> &nbsp; &nbsp; &nbsp; 用改装好的电阻档测量电流时，表头指针向左偏转，读数为，
-                             用此读数乘以250改装后的电阻表量程比率，即为所测电阻的大小。
+                            <th rowspan="4">欧姆档的改装设计</th>
+                            <td>改装要求</td>
+                            <td colspan="3">量程比率×1Ω</td>
+                            <td rowspan="4">表头指针偏转描述：<br> &nbsp; &nbsp; &nbsp; 用改装好的电阻档测量电流时，表头指针向左偏转，读数为{{$thr_thr_ds}}，用此读数乘以改装后的电阻表量程比率，即为所测电阻的大小。
                             </td>
                         </tr>
 
                         <tr>
                             <td rowspan="2">改装计算</td>
                             <td>调零电阻R4=</td>
-                            <td></td>
+                            <td>{{$thr_thr_r4}}</td>
                             <td>Ω</td>
                         </tr>
                         <tr>
                             <td>校准电阻R3=</td>
-                            <td></td>
+                            <td>{{$thr_thr_r3}}</td>
                             <td>Ω</td>
                         </tr>
                         <tr>
                             <td>测量电阻</td>
                             <td>Rx=</td>
-                            <td></td>
+                            <td>{{$thr_thr_rx}}</td>
                             <td>Ω</td>
                         </tr>
                     </table>
-               
+                </p>
                 <p style="display:inline;">4.实验电路设计识图题</p>
                 <p style="display:inline;font-size: 15px;color: skyblue">（10分）
                 </p>
-                <p style="display:inline;font-size: 15px;">（分数：{{$grade_xp}}）
-                </p>
+
                 <p>
                     &nbsp; &nbsp; &nbsp;下图是小明同学根据原理电路图和实验要求，搭建的测电流时的实验截图，请问:
                 </p>
@@ -361,10 +349,9 @@
 
                     <p style="display:inline;font-size: 15px;color: skyblue">（每空1分）
                     </p>
-                    <p style="display:inline;font-size: 15px;">（分数：{{$grade_xp}}）
-                    </p>
+
                     <p style="text-align:center">
-                        R1={{$four_one_r1}}Ω;R2={{$four_one_r2}}Ω;R3={{$four_one_r3}}Ω;R4={{$four_one_r4}}Ω;Ix={{$four_one_ix}}mA(数据范围5.9-6.3)
+                        R1={{$four_one_r1}}Ω；R2={{$four_one_r2}}Ω；R3={{$four_one_r3}}Ω；R4={{$four_one_r4}}Ω；Ix={{$four_one_ix}}mA（数据范围5.9-6.3）
                     </p>
                     <p style="display:inline;">
                         （2）判断题
@@ -387,7 +374,7 @@
                             &nbsp; &nbsp; &nbsp;&nbsp;4)电路连接正确，但微安表未机械调零；{{$four_two_4}}
                         </p>
                         <p>
-                            &nbsp; &nbsp; &nbsp;&nbsp;5)电路连接正确，但在测量电流时，应该将多挡开关置3 {{$four_two_5}}
+                            &nbsp; &nbsp; &nbsp;&nbsp;5)电路连接正确，但在测量电流时，应该将多挡开关置3{{$four_two_5}}
                         </p>
                     </p>
                 </p>
@@ -398,4 +385,3 @@
     </body>
 
     </html>
-

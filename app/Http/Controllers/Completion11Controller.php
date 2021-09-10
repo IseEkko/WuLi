@@ -124,6 +124,7 @@ class Completion11Controller extends Controller
         $grade = 0;
         $grade_xp = 0;
 
+        Student::statechange($student_id);
         if ($one_ig == 500.0) {
             $grade += 2;
         }
@@ -282,10 +283,10 @@ class Completion11Controller extends Controller
     }
 
 
-    public function pdf11(PdfRequest $request)
+    public function pdf11($student_id)
     {
 
-        $student_id = $request['student_id'];
+        //$student_id = $request['student_id'];
 
         $student_a = Completion11::show($student_id);
 
@@ -427,8 +428,6 @@ class Completion11Controller extends Controller
 
         ]);
 
-
-
         $mpdf = new Mpdf\Mpdf(['utf-8', 'A4', 16, '', 10, 10, 15, 15]);
 
 
@@ -436,7 +435,7 @@ class Completion11Controller extends Controller
 
         $mpdf->WriteHTML($res);
 
-        $mpdf->Output('实验报告.pdf', "I");
+        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "I");
 
         exit;
     }
