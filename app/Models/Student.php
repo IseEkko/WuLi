@@ -15,6 +15,42 @@ class Student extends Model
     {
 
         try {
+
+           $role = Student::where('student_num',$student_num)
+                           ->orwhere('experiment_name',$experiment_name)
+                           ->count();
+            if($role == 0) {
+                $res =  Student::create(
+                    [
+                        'student_name' => $student_name,
+                        'student_level' => $student_level,
+                        'student_spec' => $student_spec,
+                        'student_year' => $student_year,
+                        'student_class' => $student_class,
+                        'student_num' => $student_num,
+                        'experiment_name' => $experiment_name,
+                        'course_name' => $course_name,
+                        'student_date' => $student_date,
+                        'student_teacher' => $student_teacher,
+                        'state' => 1
+                    ]
+    
+                );
+    
+    
+                return $res ?
+                    $res :
+                    false;
+            }else if($role > 0){
+                $res = Student::where('student_num',$student_num)
+                ->orwhere('experiment_name',$experiment_name)
+                ->get();
+
+                return $res ?
+                    $res :
+                    false;
+            }
+
              Student::create(
                 [
                     'student_name' => $student_name,
@@ -36,6 +72,7 @@ class Student extends Model
             return $res ?
                 $res :
                 false;
+
         } catch (\Exception $e) {
             logError('搜索错误', [$e->getMessage()]);
             return false;
