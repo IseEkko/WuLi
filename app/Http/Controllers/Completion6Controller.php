@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Completion6photoRequest;
 use App\Http\Requests\Completion6Request;
 use App\Models\Completion6;
 use App\Models\Student;
@@ -41,8 +42,12 @@ class Completion6Controller extends Controller
         $student_id = $request['student_id'];
         $grade_xp=$request['grade_xp'];
 
+        $fraction_p1=0;
+        $fraction_p2=0;
+
 
         $res1 = Completion6::establish(
+            $student_id,
             $ig1,
             $rg1,
             $e,
@@ -63,8 +68,10 @@ class Completion6Controller extends Controller
             $pd1,
             $pd2,
             $pd3,
-            $student_id
+            $fraction_p1,
+            $fraction_p2
         );
+
         $grade = 0;
 
         if($ig1 == 500.0) $grade+=5;
@@ -107,6 +114,28 @@ class Completion6Controller extends Controller
 
         return $res ?
             json_success('操作成功!', null, 200) :
+            json_fail('操作失败!', null, 100);
+    }
+
+
+    public function completion6photo(Completion6photoRequest $request)
+    {
+        $student_id = $request['student_id'];
+        $fraction_p1 = $request['fraction_p1'];
+        $fraction_p2 = $request['fraction_p2'];
+        $res=Completion6::establishphoto($student_id,$fraction_p1,$fraction_p2);
+        return $res ?
+            json_success('操作成功!', null, 200) :
+            json_fail('操作失败!', null, 100);
+    }
+
+
+    public function completion6out(Request $request)
+    {
+        $student_id = $request['student_id'];
+        $res=Completion6::outphoto($student_id);
+        return $res ?
+            json_success('操作成功!', $res, 200) :
             json_fail('操作失败!', null, 100);
     }
 
@@ -214,9 +243,5 @@ class Completion6Controller extends Controller
 
         exit;
     }
-
-
-
-
 
 }

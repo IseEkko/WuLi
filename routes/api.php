@@ -29,6 +29,9 @@ Route::prefix('experiment6')->group(function (){
 
     Route::get('pdf6','Completion6Controller@pdf6');//实验6pdf
 
+    Route::post('completion6photo','Completion6Controller@completion6photo');//实验6图片分存入
+
+    Route::post('completion6out','Completion6Controller@completion6out');//拿答题数据对象
 });
 
 
@@ -49,7 +52,6 @@ Route::prefix('experiment')->group(function (){
     Route::post('completion8','runController@completion8');//实验8答题
 
     Route::get('pdf','ExperimentController@pdf');//实验pdf
-
 
     Route::get('pdf8','runController@pdf8');//实验8pdf
 

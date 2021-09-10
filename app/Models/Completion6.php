@@ -11,8 +11,45 @@ class Completion6 extends Model
     protected $primaryKey = "id";
     protected $guarded = [];
 
+    //存图片
+    public static function establishphoto($student_id,$fraction_p1,$fraction_p2)
+    {
+        try {
+            //把数据存入数据库
+            $res = Completion6::where('student_id',$student_id)
+                ->update(['fraction_p1'=>$fraction_p1,'fraction_p2'=>$fraction_p2]);
+
+            //取出原来的总分
+            $score = Student::where('id',$student_id)->value('grade')+$fraction_p1+$fraction_p2;
+            //修改总分
+            $res2 = Student::where('id',$student_id)
+                ->update(['grade'=>$score]);
+            return $res ?
+                $res :
+                false;
+        } catch (\Exception $e) {
+            logError('搜索错误', [$e->getMessage()]);
+            return false;
+        }
+    }
+
+
+    public static function outphoto($student_id)
+    {
+        try {
+            $res = Completion6::where('student_id',$student_id)->get()->first();
+            return $res ?
+                $res :
+                false;
+        } catch (\Exception $e) {
+            logError('搜索错误', [$e->getMessage()]);
+            return false;
+        }
+    }
+
 
     public static function establish(
+        $student_id,
         $ig1,
         $rg1,
         $e,
@@ -33,7 +70,8 @@ class Completion6 extends Model
         $pd1,
         $pd2,
         $pd3,
-        $student_id
+        $fraction_p1,
+        $fraction_p2
     ) {
         try {
             $res = Completion6::create(
@@ -58,11 +96,15 @@ class Completion6 extends Model
                     'pd1' => $pd1,
                     'pd2' => $pd2,
                     'pd3' => $pd3,
-                    'student_id' => $student_id
+                    'student_id' => $student_id,
+                    'fraction_p1' => $fraction_p1,
+                    'fraction_p2' => $fraction_p2
                 ]
-
             );
-
+            //在把答题数据存入数据库的时候 通过student.id连表 将student的state变为2
+            Completion6::join('student', 'student.id', '=', 'completion6.student_id')
+                ->where('student.id', '=', $student_id)
+                ->update(['student.state'=>'2']);
             return $res ?
                 $res :
                 false;
