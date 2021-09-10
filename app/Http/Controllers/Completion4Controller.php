@@ -43,7 +43,6 @@ class Completion4Controller extends Controller
         $l6=$request['l6'];
         $l7=$request['l7'];
 
-
         $res1 = Completion4::establish(
             $n1,
             $n5,
@@ -177,7 +176,6 @@ class Completion4Controller extends Controller
 
         $res['res1'] = $res1;
         $res['res2'] = $res2;
-
         return $res ?
             json_success('操作成功!', null, 200) :
             json_fail('操作失败!', null, 100);

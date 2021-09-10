@@ -42,9 +42,6 @@ class Completion6Controller extends Controller
         $grade_xp=$request['grade_xp'];
 
 
-        $p1score=$request['p1score'];
-        $p2score=$request['p2score'];
-
         $res1 = Completion6::establish(
             $ig1,
             $rg1,
@@ -101,7 +98,7 @@ class Completion6Controller extends Controller
 
         if($rx>=20.0&&$rx<=275.0) $grade+=5;
 
-        $grade=$p1score+$p2score+$grade+$grade_xp;
+        $grade=$grade+$grade_xp;
 
         $res2 = Student::grade($student_id, $grade,$grade_xp);
 
