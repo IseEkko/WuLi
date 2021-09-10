@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Completion14Request;
 use App\Http\Requests\PdfRequest;
 use App\Models\Completion14;
+use Illuminate\Http\Request;
 use Mpdf;
 use App\Models\Student;
 
@@ -305,10 +306,10 @@ class Completion14Controller extends Controller
             json_fail('操作失败!', null, 100);
     }
 
-    public function pdf14($student_id)
+    public function pdf14(Request $request)
     {
 
-        //$student_id = $request['student_id'];
+        $student_id = $request['student_id'];
 
         $student_a = Completion14::show($student_id);
         $student_b = json_decode($student_a);

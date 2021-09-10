@@ -29,7 +29,7 @@ class PdfRequest extends FormRequest
     {
         return [
             //
-            'id' => 'required',
+            'student_id' => 'required',
         ];
     }
 

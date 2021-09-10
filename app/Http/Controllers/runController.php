@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\completion8Request;
+use App\Http\Requests\PdfRequest;
 use App\Models\Completion8;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -329,10 +330,10 @@ class runController extends Controller
 
 
 
-    public function pdf8($student_id)
+    public function pdf8(Request $request)
     {
 
-        //$student_id = $request['student_id'];
+        $student_id = $request['student_id'];
         Student::statechange($student_id);
         $student_a = Student::show8($student_id);
         $student_b = json_decode($student_a);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PdfRequest;
 use App\Http\Requests\StudentRequest;
 use App\Models\Completion;
 use App\Models\Completion11;
@@ -166,11 +167,11 @@ class ExperimentController extends Controller
             json_fail('操作失败!', null, 100);
     }
 
-    public function pdf($student_id)
+    public function pdf(Request $request)
     {
 
 
-        //$student_id = $request['student_id'];
+        $student_id = $request['student_id'];
 
 
         $student_a = Student::show($student_id);

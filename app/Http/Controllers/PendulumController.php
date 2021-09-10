@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Completion3Request;
+use App\Http\Requests\PdfRequest;
 use App\Models\Completion3;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -204,10 +205,10 @@ class PendulumController extends Controller
 
     }
 
-    public function pdf3($student_id)
+    public function pdf3(Request $request)
     {
 
-        //$student_id = $request['student_id'];
+        $student_id = $request['student_id'];
 
         $student_a = Student::show3($student_id);
         $student_b = json_decode($student_a);

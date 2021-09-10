@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Completion6Request;
+use App\Http\Requests\PdfRequest;
 use App\Models\Completion6;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -113,9 +114,9 @@ class Completion6Controller extends Controller
 
 
 
-    public function pdf6($student_id)
+    public function pdf6(Request $request)
     {
-        //$student_id = $request['student_id'];
+        $student_id = $request['student_id'];
 
         $student_a = Completion6::show6($student_id);
 

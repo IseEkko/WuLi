@@ -87,9 +87,9 @@ class Completion1Controller
     }
 
 
-    public function pdf1($student_id)
+    public function pdf1(Request $request)
     {
-        //$student_id = $request['student_id'];
+        $student_id = $request['student_id'];
 
         $student_a = Completion1::show($student_id);
 

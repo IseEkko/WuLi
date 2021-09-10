@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\Validation\Validator;
 use App\Http\Requests\Completion11Request;
 use App\Http\Requests\PdfRequest;
@@ -283,10 +284,10 @@ class Completion11Controller extends Controller
     }
 
 
-    public function pdf11($student_id)
+    public function pdf11(Request $request)
     {
 
-        //$student_id = $request['student_id'];
+        $student_id = $request['student_id'];
 
         $student_a = Completion11::show($student_id);
 

@@ -258,10 +258,10 @@ class BridgeController extends Controller
            json_fail('操作失败',null,100);
     }
 
-    public function pdf($student_id)
+    public function pdf(Request $request)
     {
 
-        //$student_id = $request['student_id'];
+        $student_id = $request['student_id'];
 
 
         $student_a = Student::show2($student_id);
