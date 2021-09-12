@@ -427,7 +427,7 @@
         <div>C.使用一个测量盘时，读出的测量值精度最高</div>
         <div>D.读出的测量值有效位数多，测量精度有保证</div>
         <div>
-            答案：<span>D</span>
+            答案：<span>{{$xz1}}</span>
         </div>
         </br>
         <div>2.为了提高电桥测量的灵敏度，应采取哪些措施?</div>
@@ -436,18 +436,18 @@
         <div>C.比例臂可以随意选取</div>
         <div>D.不使用等臂电桥</div>
         <div>
-            答案：<span>A</span>
+            答案：<span>{{$xz2}}</span>
         </div>
         </br>
         <h3>八、 判断题<span style="color: red; ">（每题6分，一共12分）</span></h3>
         <div>1.因为电桥箱是设计生产精良的专业实验仪器，电桥箱中的检流计不用调零。</div>
         <div>
-            答案：<span>错</span>
+            答案：<span>{{$pd1}}</span>
         </div>
         </br>
         <div>2.在电阻值的测量过程中，只用按下内接检流计开关这一个开关。</div>
         <div>
-            答案：<span>错</span>
+            答案：<span>{{$pd2}}</span>
         </div>
         <br>
         <br>

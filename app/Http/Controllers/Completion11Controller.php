@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
+use Illuminate\Contracts\Validation\Validator;
+use App\Http\Requests\Completion11Request;
+use App\Http\Requests\PdfRequest;
 use App\Models\Completion11;
 use App\Models\Student;
-use Illuminate\Http\Request;
 use Mpdf;
 
 class Completion11Controller extends Controller
@@ -12,21 +14,25 @@ class Completion11Controller extends Controller
     /*
      * 实验11
      */
-    public function completion11(Request $request){
+    public function completion11(Completion11Request $request){
         $one_ig = $request['one_ig'];
         $one_rg = $request['one_rg'];
         $one_e = sprintf("%.1f",$request['one_e']);
 
-        $two_one_r1gs = $request['two_one_r1gs'];
+        $two_one_rg = sprintf("%.1f",$request['two_one_rg']);
+        $two_one_ig = sprintf("%.1f",$request['two_one_ig']);
+        $two_one_im = sprintf("%.1f",$request['two_one_im']);
+
+
         $two_one_r1 = sprintf("%.1f",$request['two_one_r1']);
         $two_two_rn = sprintf("%.1f",$request['two_two_rn']);
         $two_two_im = sprintf("%.1f",$request['two_two_im']);
-        $two_two_r2gs = $request['two_two_r2gs'];
+
         $two_two_vm = sprintf("%.1f",$request['two_two_vm']);
         $two_two_im2 = sprintf("%.1f",$request['two_two_im2']);
         $two_two_rn2 = sprintf("%.1f",$request['two_two_rn2']);
         $two_two_r2 = sprintf("%.1f",$request['two_two_r2']);
-        $two_thr_r4 = $request['two_thr_r4'];
+
         $two_thr_e = sprintf("%.1f",$request['two_thr_e']);
         $two_thr_im2 = sprintf("%.1f",$request['two_thr_im2']);
         $two_thr_rn = sprintf("%.1f",$request['two_thr_rn']);
@@ -38,10 +44,10 @@ class Completion11Controller extends Controller
 
 
         $thr_one_r1 = sprintf("%f",$request['thr_one_r1']);
-        $thr_one_ix = sprintf("%f",$request['thr_one_ix']);
+        $thr_one_ix = sprintf("%.2f",$request['thr_one_ix']);
         $thr_one_ds = sprintf("%f",$request['thr_one_ds']);
         $thr_two_r2 = sprintf("%f",$request['thr_two_r2']);
-        $thr_two_vx = sprintf("%f",$request['thr_two_vx']);
+        $thr_two_vx = sprintf("%.2f",$request['thr_two_vx']);
         $thr_two_ds = sprintf("%f",$request['thr_two_ds']);
         $thr_thr_r4 = sprintf("%f",$request['thr_thr_r4']);
         $thr_thr_r3 = sprintf("%f",$request['thr_thr_r3']);
@@ -66,21 +72,24 @@ class Completion11Controller extends Controller
 
 
 
-
         $res1 = Completion11::establish(
             $one_ig,
             $one_rg,
             $one_e,
-            $two_one_r1gs,
+
+            $two_one_rg,
+            $two_one_ig,
+            $two_one_im,
+
             $two_one_r1,
             $two_two_rn,
             $two_two_im,
-            $two_two_r2gs,
+
             $two_two_vm,
             $two_two_im2,
             $two_two_rn2,
             $two_two_r2,
-            $two_thr_r4,
+
             $two_thr_e,
             $two_thr_im2,
             $two_thr_rn,
@@ -116,6 +125,7 @@ class Completion11Controller extends Controller
         $grade = 0;
         $grade_xp = 0;
 
+        Student::statechange($student_id);
         if ($one_ig == 500.0) {
             $grade += 2;
         }
@@ -126,7 +136,13 @@ class Completion11Controller extends Controller
             $grade += 2;
         }
 
-        if ($two_one_r1gs == "Ig/(Im-Ig)") {
+        if ($two_one_rg == 560.0) {
+            $grade += 3;
+        }
+        if ($two_one_ig == 0.5) {
+            $grade += 3;
+        }
+        if ($two_one_im == 10.0) {
             $grade += 3;
         }
 
@@ -139,9 +155,7 @@ class Completion11Controller extends Controller
         if ($two_two_im == 10.0) {
             $grade += 3;
         }
-        if ($two_two_r2gs == "Vm/Im-Rn") {
-            $grade += 3;
-        }
+
         if ($two_two_vm == 5.0) {
             $grade += 3;
         }
@@ -155,9 +169,7 @@ class Completion11Controller extends Controller
         if ($two_two_r2 == 472.0) {
             $grade += 3;
         }
-        if ($two_thr_r4 == "E/Im-Rn") {
-            $grade += 3;
-        }
+
         if ($two_thr_e == 1.5) {
             $grade += 3;
         }
@@ -187,7 +199,7 @@ class Completion11Controller extends Controller
         if ($thr_one_r1 == 29.5) {
             $grade += 3;
         }
-        if ($thr_one_ix >= 2.0 && $thr_one_ix <= 8.0) {
+        if ($thr_one_ix == $thr_one_ds / 10.0) {//
             $grade += 3;
         }
 
@@ -197,7 +209,7 @@ class Completion11Controller extends Controller
         if ($thr_two_r2 == 472.0) {
             $grade += 3;
         }
-        if ($thr_two_vx >= 1.2 && $thr_two_vx <= 4.0) {
+        if ($thr_two_vx == $thr_two_ds / 20.0) {//
             $grade += 3;
         }
         if ($thr_two_ds >= 20.0 && $thr_two_ds <= 80.0) {
@@ -209,10 +221,10 @@ class Completion11Controller extends Controller
         if ($thr_thr_r3 >= 60.0 && $thr_thr_r3 <= 63.0) {
             $grade += 3;
         }
-        if ($thr_thr_rx >= 15.0 && $thr_thr_rx <= 200.0) {
+        if ($thr_thr_rx == $thr_thr_ds) {//
             $grade += 3;
         }
-        if ($thr_thr_ds >= 15.0 && $thr_thr_ds <= 200.0) {
+        if ($thr_thr_ds >= 15.0 && $thr_thr_ds <= 250.0) {
             $grade += 3;
         }
 
@@ -229,7 +241,7 @@ class Completion11Controller extends Controller
         if ($four_one_r4 == 122.1) {
             $grade += 1;
         }
-        if ($four_one_ix >= 5.9 && $four_one_ix <= 6.3) {
+        if ($four_one_ix == 6.0) {
             $grade += 1;
         }
 
@@ -280,19 +292,29 @@ class Completion11Controller extends Controller
         $student_a = Completion11::show($student_id);
 
         $student_b = json_decode($student_a);
+
         $one_ig		 = $student_b[0]->one_ig;
         $one_rg		 = $student_b[0]->one_rg;
         $one_e		 = $student_b[0]->one_e;
-        $two_one_r1gs = $student_b[0]->two_one_r1gs;
+
+
+
+
+
         $two_one_r1	 = $student_b[0]->two_one_r1;
+
+        $two_one_rg	 = $student_b[0]->two_one_rg;
+        $two_one_ig	 = $student_b[0]->two_one_ig;
+        $two_one_im	 = $student_b[0]->two_one_im;
+
         $two_two_rn	 = $student_b[0]->two_two_rn;
         $two_two_im	 = $student_b[0]->two_two_im;
-        $two_two_r2gs = $student_b[0]->two_two_r2gs;
+
         $two_two_vm	 = $student_b[0]->two_two_vm;
         $two_two_im2 = $student_b[0]->two_two_im2;
         $two_two_rn2 = $student_b[0]->two_two_rn2;
         $two_two_r2	 = $student_b[0]->two_two_r2;
-        $two_thr_r4	 = $student_b[0]->two_thr_r4;
+
         $two_thr_e	 = $student_b[0]->two_thr_e	;
         $two_thr_im2 = $student_b[0]->two_thr_im2;
         $two_thr_rn	 = $student_b[0]->two_thr_rn;
@@ -362,16 +384,20 @@ class Completion11Controller extends Controller
             'one_ig' => $one_ig,
             'one_rg' => $one_rg,
             'one_e' => sprintf("%.1f",$one_e),
-            'two_one_r1gs' => $two_one_r1gs,
+
+            'two_one_rg' => $two_one_rg,
+            'two_one_ig' => sprintf("%.1f",$two_one_ig),
+            'two_one_im' => $two_one_im,
+
             'two_one_r1' => sprintf("%.1f",$two_one_r1),
             'two_two_rn' => $two_two_rn,
             'two_two_im' => $two_two_im,
-            'two_two_r2gs' => $two_two_r2gs,
+
             'two_two_vm' =>  $two_two_vm,
             'two_two_im2' => $two_two_im2,
             'two_two_rn2' => $two_two_rn2,
             'two_two_r2' =>  $two_two_r2,
-            'two_thr_r4' => $two_thr_r4,
+
             'two_thr_e' => sprintf("%.1f",$two_thr_e),
             'two_thr_im2' => $two_thr_im2,
             'two_thr_rn' => $two_thr_rn,
@@ -381,15 +407,15 @@ class Completion11Controller extends Controller
             'two_four_rn4'=> $two_four_rn4,
             'two_four_r3' => $two_four_r3,
             'thr_one_r1'  => sprintf("%.1f",$thr_one_r1),
-            'thr_one_ix' =>  $thr_one_ix,
-            'thr_one_ds'  => $thr_one_ds,
+            'thr_one_ix' =>  sprintf("%.2f",$thr_one_ix),
+            'thr_one_ds'  => sprintf("%.2f",$thr_one_ds),
             'thr_two_r2' =>  $thr_two_r2,
-            'thr_two_vx' => sprintf("%.1f",$thr_two_vx),
-            'thr_two_ds' => $thr_two_ds,
+            'thr_two_vx' => sprintf("%.2f",$thr_two_vx),
+            'thr_two_ds' => sprintf("%.2f",$thr_two_ds),
             'thr_thr_r4' => sprintf("%.1f",$thr_thr_r4),
-            'thr_thr_r3' => $thr_thr_r3,
-            'thr_thr_rx' => $thr_thr_rx,
-            'thr_thr_ds' => $thr_thr_ds,
+            'thr_thr_r3' => sprintf("%.1f",$thr_thr_r3),
+            'thr_thr_rx' => sprintf("%.2f",$thr_thr_rx),
+            'thr_thr_ds' => sprintf("%.2f",$thr_thr_ds),
             'four_one_r1' => sprintf("%.1f",$four_one_r1),
             'four_one_r2' => $four_one_r2,
             'four_one_r3' => $four_one_r3,
@@ -403,16 +429,14 @@ class Completion11Controller extends Controller
 
         ]);
 
-
-
         $mpdf = new Mpdf\Mpdf(['utf-8', 'A4', 16, '', 10, 10, 15, 15]);
 
 
-        $mpdf->showImageErrors = true;
+        //$mpdf->showImageErrors = true;
 
         $mpdf->WriteHTML($res);
 
-        $mpdf->Output('实验报告.pdf', "I");
+        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "I");
 
         exit;
     }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Completion2Request;
+use App\Http\Requests\PdfRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\StudentRequest;
 use App\Models\Completion2;
@@ -30,8 +32,8 @@ class BridgeController extends Controller
             json_fail('操作失败!', null, 100);
     }
 
-    public function completion(Request $request){
-        
+    public function completion(Completion2Request $request){
+
         $ra1 = $request['ra1'];
         $ra2 = $request['ra2'];
         $ra3 = $request['ra3'];
@@ -68,8 +70,12 @@ class BridgeController extends Controller
         $ss = $request['ss'];
         $student_id = $request['student_id'];
         $grade_xp = $request['grade_xp'];//选择判断题分
-        
- 
+        $xz1 = $request['xz1'];
+        $xz2 = $request['xz2'];
+        $pd1 = $request['pd1'];
+        $pd2 = $request['pd2'];
+
+
 
 
         $res1 = Completion2::establish(
@@ -107,11 +113,16 @@ class BridgeController extends Controller
             $ss2,
             $ss3,
             $ss,
-            $student_id
+            $student_id,
+            $xz1,
+            $xz2,
+            $pd1,
+            $pd2
         );
 
         $grade = 0;
 
+        Student::statechange($student_id);
         if(0 < $ra1 && $ra1 < 9999){
             $grade += 2;
 
@@ -137,7 +148,7 @@ class BridgeController extends Controller
             $grade += 2;
         }
 
-        
+
         if($rb1 == $ra1){
             $grade += 2;
         }
@@ -173,8 +184,8 @@ class BridgeController extends Controller
             $grade += 2;
         }
 
-        
-        
+
+
         if($rc1 > 0 && $rc1 < 9999){
             $grade += 2;
         }
@@ -197,41 +208,41 @@ class BridgeController extends Controller
             $grade += 2;
         }
 
-        
+
         if($rd1 == $rc1){
-            $grade += 2; 
+            $grade += 2;
         }
         if($rd2 == $rc2){
-            $grade += 2; 
+            $grade += 2;
         }
         if($rd3 == $rc3){
-            $grade += 2; 
+            $grade += 2;
         }
-        
+
         if($rchange1b < 9999 && $rchange1b > $rchange2b && $rchange1b < $rchange3b){
-            $grade += 2; 
+            $grade += 2;
         }
         if($rchange2b < 9999 && $rchange2b<$rchange1b && $rchange1b < $rchange3b){
-            $grade += 2; 
+            $grade += 2;
         }
         if($rchange3b < 9999 && $rchange2b<$rchange1b && $rchange1b < $rchange3b){
-            $grade += 2; 
+            $grade += 2;
         }
-        
+
         if($ss1 == sprintf("%.2f",($rd1/$rchange1b))){
-            $grade += 2; 
+            $grade += 2;
         }
         if($ss2 == sprintf("%.2f",(2*$rd2/$rchange2b))){
-            $grade += 2; 
+            $grade += 2;
         }
         if($ss3 == sprintf("%.2f",(3*$rd3/$rchange3b))){
-            $grade += 2; 
+            $grade += 2;
         }
         if($ss == sprintf("%.2f",($ss1 + $ss2 + $ss3)/3)){
             $grade += 2;
         }
 
-        
+
 
         $grade = $grade + $grade_xp;
 
@@ -242,7 +253,7 @@ class BridgeController extends Controller
         $res['res1'] = $res1;
         $res['res2'] = $res2;
 
-        return $res ? 
+        return $res ?
            json_success('操作成功',null, 200) :
            json_fail('操作失败',null,100);
     }
@@ -250,9 +261,8 @@ class BridgeController extends Controller
     public function pdf(Request $request)
     {
 
-
         $student_id = $request['student_id'];
-  
+
 
         $student_a = Student::show2($student_id);
 
@@ -292,7 +302,11 @@ class BridgeController extends Controller
             $ss2 = $student_b[0] -> ss2;
             $ss3 = $student_b[0] -> ss3;
             $ss = $student_b[0] -> ss;
-        
+            $xz1 = $student_b[0] -> xz1;
+            $xz2 = $student_b[0] -> xz2;
+            $pd1 = $student_b[0] -> pd1;
+            $pd2 = $student_b[0] -> pd2;
+
 
 
 
@@ -360,20 +374,24 @@ class BridgeController extends Controller
             'ss1' => $ss1,
             'ss2' => $ss2,
             'ss3' => $ss3,
-            'ss' => $ss
+            'ss' => $ss,
+            'xz1' => $xz1,
+            'xz2' => $xz2,
+            'pd1' => $pd1,
+            'pd2' => $pd2
 
         ]);
 
 
 
         $mpdf = new Mpdf\Mpdf(['utf-8', 'A4', 16, '', 10, 10, 15, 15]);
-        
-    
+
+
         $mpdf->showImageErrors = true;
 
         $mpdf->WriteHTML($res);
 
-        $mpdf->Output('实验报告.pdf', "I");
+        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "I");
 
         exit;
     }

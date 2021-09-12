@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PdfRequest;
 use App\Http\Requests\StudentRequest;
 use App\Models\Completion;
 use App\Models\Completion11;
@@ -84,6 +85,7 @@ class ExperimentController extends Controller
 
         $grade = 0;
 
+        Student::statechange($student_id);
 
         if (strlen(substr(strrchr($completion_1,"."),1)) == 3) {
             $grade += 4;
@@ -253,11 +255,11 @@ class ExperimentController extends Controller
         $mpdf = new Mpdf\Mpdf(['utf-8', 'A4', 16, '', 10, 10, 15, 15]);
 
 
-        $mpdf->showImageErrors = true;
+        //$mpdf->showImageErrors = true;
 
         $mpdf->WriteHTML($res);
 
-        $mpdf->Output('实验报告.pdf', "I");
+        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "I");
 
         exit;
     }

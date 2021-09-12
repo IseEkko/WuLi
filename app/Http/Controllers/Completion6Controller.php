@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Completion6photoRequest;
 use App\Http\Requests\Completion6Request;
+use App\Http\Requests\PdfRequest;
 use App\Models\Completion6;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -42,8 +43,8 @@ class Completion6Controller extends Controller
         $student_id = $request['student_id'];
         $grade_xp=$request['grade_xp'];
 
-        $fraction_p1=0;
-        $fraction_p2=0;
+
+        Student::statechange($student_id);
 
 
         $res1 = Completion6::establish(
@@ -239,7 +240,7 @@ class Completion6Controller extends Controller
 
         $mpdf->WriteHTML($res);
 
-        $mpdf->Output('实验报告.pdf', "I");
+        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "I");
 
         exit;
     }

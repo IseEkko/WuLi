@@ -4,9 +4,9 @@
 
     <head>
 
-        <meta charset="utf-8">
+        <meta charset="utf-8">s
 
-        <title>实验项目</title>
+        <title>万用表改装设计实验</title>
 
         <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
 
@@ -183,7 +183,7 @@
 
                     <tr>
                         <th>标准表读数（V）</th>
-                        <td>{{$one_rg}}</td>
+                        <td>{{$one_rg}}}</td>
                         <td>Ω</td>
                     </tr>
                     <tr>
@@ -198,16 +198,15 @@
                 <p style="display:inline;">2.各电阻阻值设置计算</p>
                 <p style="display:inline;font-size: 15px;color: skyblue">（要求四舍五入精确到小数点后1位，每空3分，共54分）
                 </p>
-                <p style="display:inline;font-size: 15px;">（分数：{{$grade_xp}}）
-                </p>
+
                 <p>
 
                     1)分流电阻计算<br>
                     <P>
-                        &nbsp; &nbsp; &nbsp;&nbsp;①仅闭合转换开关1，此时分流电阻计算公式为：{{$two_one_r1gs}}
+                        &nbsp; &nbsp; &nbsp;&nbsp;①仅闭合转换开关1，此时分流电阻计算公式为：R1=Rg×Ig/(Im-Ig)
                     </P>
                     <P>
-                        &nbsp; &nbsp; &nbsp;&nbsp;②代入Rg=560Ω；Ig=0.5mA；Im=10mA
+                        &nbsp; &nbsp; &nbsp;&nbsp;②代入Rg={{$two_one_rg}}Ω；Ig={{$two_one_ig}}mA；Im={{$two_one_im}}mA
                     </P>
                     <P>
                         &nbsp; &nbsp; &nbsp;&nbsp;③计算出R1={{$two_one_r1}}Ω
@@ -219,7 +218,7 @@
                             &nbsp; &nbsp; &nbsp;&nbsp;①根据电路图，此时微安表内阻为：Rn=Rg//R1={{$two_two_rn}}Ω；量程为：Im={{$two_two_im}}mA
                         </P>
                         <P>
-                            &nbsp; &nbsp; &nbsp;&nbsp;②仅闭合转换开关2，此时分压电阻计算公式为：R2={{$two_two_r2gs}}
+                            &nbsp; &nbsp; &nbsp;&nbsp;②仅闭合转换开关2，此时分压电阻计算公式为：R2=R2=Vm/Im-Rn
                         </P>
                         <P>
                             &nbsp; &nbsp; &nbsp;&nbsp;③代入Vm={{$two_two_vm}}V,Im={{$two_two_im2}}mA,Rn={{$two_two_rn2}}Ω
@@ -232,13 +231,13 @@
                     <p>
                         3)调零电阻计算（理论值）
                         <P>
-                            &nbsp; &nbsp; &nbsp;&nbsp;①根据电路图，仅闭合转换开关3，短接红黑表笔，此时调零电阻计算公式为：R4={{$two_thr_r4}}
+                            &nbsp; &nbsp; &nbsp;&nbsp;①根据电路图，仅闭合转换开关3，短接红黑表笔，此时调零电阻计算公式为：R4=E/Im-Rn
                         </P>
                         <P>
                             &nbsp; &nbsp; &nbsp;&nbsp;②代入E={{$two_thr_e}}V,Im={{$two_thr_im2}}mA,Rn={{$two_thr_rn}}Ω<br>
                         </P>
                         <P>
-                            &nbsp; &nbsp; &nbsp;&nbsp;③计算出R4={{$two_thr_r42}}Ω
+                            &nbsp; &nbsp; &nbsp;&nbsp;④计算出R4={{$two_thr_r42}}Ω
                         </P>
                     </p>
                     <p>
@@ -261,22 +260,21 @@
                 <p style="display:inline;">3.万用表改装设计实验数据记录表</p>
                 <p style="display:inline;font-size: 15px;color: skyblue">（每空3分，共30分）
                 </p>
-                <p style="display:inline;font-size: 15px;">（分数：{{$grade_xp}}）
-                </p>
+
 
                 <p>
                     <table border="1" cellpadding="10" cellspacing="0">
                         <tr>
-                            <th rowspan="3" width="130">电流档的扩展设计</th>
+                            <th rowspan="3" width="80px">电流档的扩展设计</th>
                             <td width="80">改装要求</td>
-                            <td colspan="3" >量程Im=10mA</td>
+                            <td colspan="3">量程Im=10mA</td>
                             <td rowspan="3">表头指针偏转描述：<br> &nbsp; &nbsp; &nbsp;用改装好的电流档测量电流时，表头指针向右偏转，读数为{{$thr_one_ds}}，用此读数除以100再乘以改装后的电流表量程10mA，即为所测电流Ix的大小。</td>
                         </tr>
 
                         <tr>
                             <td>改装计算</td>
                             <td>分流电阻R1=</td>
-                            <td>{{$thr_one_r1}}</td>
+                            <td width="50px">{{$thr_one_r1}}</td>
                             <td>Ω</td>
                         </tr>
                         <tr>
@@ -335,8 +333,7 @@
                 <p style="display:inline;">4.实验电路设计识图题</p>
                 <p style="display:inline;font-size: 15px;color: skyblue">（10分）
                 </p>
-                <p style="display:inline;font-size: 15px;">（分数：{{$grade_xp}}）
-                </p>
+
                 <p>
                     &nbsp; &nbsp; &nbsp;下图是小明同学根据原理电路图和实验要求，搭建的测电流时的实验截图，请问:
                 </p>
@@ -352,8 +349,7 @@
 
                     <p style="display:inline;font-size: 15px;color: skyblue">（每空1分）
                     </p>
-                    <p style="display:inline;font-size: 15px;">（分数：{{$grade_xp}}）
-                    </p>
+
                     <p style="text-align:center">
                         R1={{$four_one_r1}}Ω；R2={{$four_one_r2}}Ω；R3={{$four_one_r3}}Ω；R4={{$four_one_r4}}Ω；Ix={{$four_one_ix}}mA（数据范围5.9-6.3）
                     </p>
@@ -378,7 +374,7 @@
                             &nbsp; &nbsp; &nbsp;&nbsp;4)电路连接正确，但微安表未机械调零；{{$four_two_4}}
                         </p>
                         <p>
-                            &nbsp; &nbsp; &nbsp;&nbsp;5)电路连接正确，但在测量电流时，应该将多挡开关置3 {{$four_two_5}}
+                            &nbsp; &nbsp; &nbsp;&nbsp;5)电路连接正确，但在测量电流时，应该将多挡开关置3{{$four_two_5}}
                         </p>
                     </p>
                 </p>

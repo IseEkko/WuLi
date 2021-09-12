@@ -46,7 +46,11 @@ class Completion2 extends Model
             $ss2,
             $ss3,
             $ss,
-            $student_id
+            $student_id,
+            $xz1,
+            $xz2,
+            $pd1,
+            $pd2 
     ){
         try{
 
@@ -86,7 +90,11 @@ class Completion2 extends Model
                     'ss2' => $ss2,
                     'ss3' => $ss3,
                     'ss' => $ss,
-                    'student_id' => $student_id
+                    'student_id' => $student_id,
+                    'xz1' => $xz1,
+                    'xz2' => $xz2,
+                    'pd1' => $pd1,
+                    'pd2' => $pd2
                 ]
             );
 

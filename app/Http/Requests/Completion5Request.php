@@ -2,9 +2,11 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
-class Completion2Request extends FormRequest
+class Completion5Request extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,20 +26,19 @@ class Completion2Request extends FormRequest
     public function rules()
     {
         return [
-            'id'  => 'required',
             'ra1' => 'required',
             'ra2' => 'required',
             'ra3' => 'required',
-            'rx'  => 'required',
-            'rx1' => 'required',
-            'rx2' => 'required',
-            'rx3' => 'required',
+            'rx_a1'  => 'required',
+            'rx_a2' => 'required',
+            'rx_a3' => 'required',
+            'rx' => 'required',
             'rb1' => 'required',
             'rb2' => 'required',
             'rb3' => 'required',
-            'rchange1a' => 'required',
-            'rchange2a' => 'required',
-            'rchange3a' => 'required',
+            'ra_change1' => 'required',
+            'ra_change2' => 'required',
+            'ra_change3' => 'required',
             's1' => 'required',
             's2' => 'required',
             's3' => 'required',
@@ -45,16 +46,16 @@ class Completion2Request extends FormRequest
             'rc1' => 'required',
             'rc2' => 'required',
             'rc3' => 'required',
-            'rwait1' => 'required',
-            'rwait2' => 'required',
-            'rwait3' => 'required',
+            'rx_b1' => 'required',
+            'rx_b2' => 'required',
+            'rx_b3' => 'required',
             'rxx' => 'required',
             'rd1' => 'required',
             'rd2' => 'required',
             'rd3' => 'required',
-            'rchange1b' => 'required',
-            'rchange2b' => 'required',
-            'rchange3b' => 'required',
+            'rb_change1' => 'required',
+            'rb_change2' => 'required',
+            'rb_change3' => 'required',
             'ss1' => 'required',
             'ss2' => 'required',
             'ss3' => 'required',
@@ -67,9 +68,9 @@ class Completion2Request extends FormRequest
 
         ];
     }
-
-    protected function failedValidation(Validator $validator){
-
-        throw(new HttpResponseException(json_fail('参数错误',$validator->errors()->all(),422)));
+    protected function failedValidation(Validator $validator)
+    {
+        throw (new HttpResponseException(json_fail('参数错误!',$validator->errors()->all(),422)));
     }
+
 }
