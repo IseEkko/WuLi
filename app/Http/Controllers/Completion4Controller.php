@@ -169,12 +169,12 @@ class Completion4Controller extends Controller
         if ($pd3 == 0) {
             $grade_xp+= 6;
         }
-
         $grade = $grade + $grade_xp;
 
         $res2 = Student::grade($student_id, $grade,$grade_xp);
 
         $res['res1'] = $res1;
+
         $res['res2'] = $res2;
         return $res ?
             json_success('操作成功!', null, 200) :
@@ -183,7 +183,6 @@ class Completion4Controller extends Controller
 
     public function pdf4(Request $request)
     {
-
         $student_id = $request['student_id'];
 
         $student_a = Completion4::show($student_id);
@@ -225,7 +224,22 @@ class Completion4Controller extends Controller
         $student_teacher = $student_b[0]->student_teacher;
         $grade = $student_b[0]->grade;
         $grade_xp = $student_b[0]->grade_xp;
+        if($pd1==1){
+            $pd1='对';
+        }else{
+            $pd1='错';
+        }
 
+        if($pd2==1){
+            $pd2='对';
+        }else{
+            $pd2='错';
+        }
+        if($pd3==1){
+            $pd3='对';
+        }else{
+            $pd3='错';
+        }
 
 
         $res = view('niudunhuan', [

@@ -352,7 +352,22 @@ class Completion14Controller extends Controller
         $x2        = $student_b[0]->x2;
         $x3        = $student_b[0]->x3;
 
+        if($x1==1){
+            $x1='对';
+        }else{
+            $x1='错';
+        }
 
+        if($x2==1){
+            $x2='对';
+        }else{
+            $x2='错';
+        }
+        if($x3==1){
+            $x3='对';
+        }else{
+            $x3='错';
+        }
         $student_name    = $student_b[0]->student_name;
         $student_level   = $student_b[0]->student_level;
         $student_spec    = $student_b[0]->student_spec;

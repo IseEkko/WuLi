@@ -108,7 +108,7 @@
 
         <h4>2.	用时基扫描测信号周期/频率参数</h4>
 
-        <div style="width: 655px;margin: 15px auto;text-indent: 2em;">示波器扫描信号的周期，实际上是以时基单位（时间/DIV）来标示的。测量中，待测信号的周期可表示为:
+        <div style="width: 655px;margin: 15px auto;text-indent: 2em;">示波器扫描信号的周期，实际上是以时基单位(时间/DIV)来标示的。测量中，待测信号的周期可表示为:
             <div style="width:100%;text-indent: 2em;text-align: center;margin: 15px;">Tx=时基单位×波形大格数（波形厘米数）</div>
             <div style="width: 655px;margin: 0px;text-indent: 7ex;"> 式中波形大格数为信号一个整周期的读数（每大格含5小格）。</div>
             <div style="width: 655px;margin: 0px;text-indent: 2ex;">信号频率则是信号周期的导数，即：</div>
@@ -117,7 +117,7 @@
 
         <h4>3.	用李萨如图形测信号的频率</h4>
 
-        <div style="width: 655px;margin: 15px auto;text-indent: 2em;">将不同的信号分别输入到CH2（信号发生器产生的已知信号）和CH1（待测信号源产生的未知信号）的输入端，当两个信号的频率满足一定的关系时，在荧光屏上将显示出李萨如图形，可用测量李萨如图形的相位参数或波形的切点数来测量时间参数。两正交正弦信号波形的相位差一定，频率比为一个有理数时，合成的圆形是一条稳定的闭合曲线。下图是几种频率比时的图形，频率比与图形的切点数之间有下列关系：</div>
+        <div style="width: 655px;margin: 15px auto;text-indent: 2em;">将不同的信号分别输入到CH2(信号发生器产生的已知信号)和CH1(待测信号源产生的未知信号)的输入端，当两个信号的频率满足一定的关系时，在荧光屏上将显示出李萨如图形，可用测量李萨如图形的相位参数或波形的切点数来测量时间参数。两正交正弦信号波形的相位差一定，频率比为一个有理数时，合成的圆形是一条稳定的闭合曲线。下图是几种频率比时的图形，频率比与图形的切点数之间有下列关系：</div>
 
         <img src ='https://s3.bmp.ovh/imgs/2021/09/0b72a8a93e9adca1.png' style="position: relative;margin: auto;display: block;">
 
@@ -125,13 +125,13 @@
 
         <h4>1.	用X轴的时基测量信号的时间参数</h4>
 
-        <div style="width: 655px;margin: 15px auto;text-indent: 2em;">1)	使用示波器自带方波信号校准示波器测量通道，并测量校准后的方波输出信号的周期（时基分度旋钮在0.2ms/DIV, 幅度分度旋钮在0.5V/DIV）；</div>
+        <div style="width: 655px;margin: 15px auto;text-indent: 2em;">1)	使用示波器自带方波信号校准示波器测量通道，并测量校准后的方波输出信号的周期(时基分度旋钮在0.2ms/DIV, 幅度分度旋钮在0.5V/DIV)；</div>
 
         <div style="width: 655px;margin: 15px auto;text-indent: 2em;">2)	选择信号发生器的正弦波接CH2(Y)输入，信号频率为500Hz/1kHz/2kHz，选择示波器合适的时基分度，测量对应周期的大格数和频率；</div>
 
         <h4>2.	观察李萨如图形并测频率</h4>
 
-        <div style="width: 655px;margin: 15px auto;text-indent: 2em;">用两台信号发生器(一台函数信号发生器，一台为待测信号源)分别接CH2（Y）和CH1（X），取fy / fx =2/1、1、1/2时，测出对应的fx和fy，求出待测信号的频率。Tips：信号跳动/不稳定时，通过调节触发电平使信号静止/稳定以利于读数
+        <div style="width: 655px;margin: 15px auto;text-indent: 2em;">用两台信号发生器(一台函数信号发生器，一台为待测信号源)分别接CH2(Y)和CH1(X)，取fy / fx =2/1.1.1/2时，测出对应的fx和fy,求出待测信号的频率 Tips:信号跳动/不稳定时，通过调节触发电平使信号静止/稳定以利于读数
         </div>
 
         <h3>六、	实验数据记录与处理</h3>
@@ -168,7 +168,7 @@
 
         <div style="text-align: center;margin: 0px;"><strong>注意：</strong>大格数、周期、频率三者的记录均需保留一位小数</div>
 
-        <div style="width: 655px;margin: 15px auto;text-indent: 2em;">选择信号发生器的正弦波接示波器CH2，信号发生器默认幅度2Vp-p，选择不同的时基分度和输入信号频率，测量各信号的周期；此时CH2的幅度分度仍然为0.5V/DIV</div>
+        <div style="width: 655px;margin: 15px auto;text-indent: 2em;">选择信号发生器的正弦波接示波器CH2,信号发生器默认幅度2Vp-p,选择不同的时基分度和输入信号频率,测量各信号的周期;此时CH2的幅度分度仍然为0.5V/DIV</div>
 
         <h4>表2： 测量正弦波信号周期和频率（每空2分共24分）</h4>
 
@@ -215,7 +215,7 @@
 
         <h4 style="margin: 15px auto;">2.	观察李萨如图形并测量频率</h4>
 
-        <div style="width: 655px;text-indent: 2em;">按实验步骤接好连线，调节信号发生器（示波器CH2（Y）通道输入）的信号频率fy，显示通道打到CH2,触发器通道默认为CH1，显示方式打开X-Y控制键，观察示波器对应李萨如图形。按如下要求将数据填入下表。（每空5分共30分）</div>
+        <div style="width: 655px;text-indent: 2em;">按实验步骤接好连线，调节信号发生器（示波器CH2(Y)通道输入）的信号频率fy,显示通道打到CH2,触发器通道默认为CH1,显示方式打开X-Y控制键,观察示波器对应李萨如图形。按如下要求将数据填入下表。（每空5分共30分）</div>
 
         <table border ="1" cellpadding="5" cellspacing="0" style="margin: 10px auto;min-width: 495px;">
             <tr>
@@ -244,22 +244,22 @@
             </tr>
         </table>
 
-        <div style="width: 655px;margin: 15px auto;">注：1，此时CH1/CH2的幅度分度均为0.2V/DIV，信号发生器默认幅度2Vp-p</div>
+        <div style="width: 655px;margin: 15px auto;">注：1，此时CH1/CH2的幅度分度均为0.2V/DIV,信号发生器默认幅度2Vp-p</div>
 
-        <div style="width: 655px;margin: 15px auto;text-indent: 2em;">2，此时示波器时基分度为0.2ms/DIV（即使改变此值对李萨如图形测量也影响不大）</div>
+        <div style="width: 655px;margin: 15px auto;text-indent: 2em;">2，此时示波器时基分度为0.2ms/DIV(即使改变此值对李萨如图形测量也影响不大)</div>
 
         <h3>七、选择题（每选项2分，共20分）</h3>
 
         <h4 style="margin: 15px;">1，	请根据示波器面板的使用要求，选择正确的选项</h4>
 
-        <h4 style="text-indent: 4ex;">A.辉度按钮；B.聚焦按钮；C.水平位移；D.垂直移位；E.扫描微调旋钮；F.触发电平旋钮</h4>
+        <h4 style="text-indent: 4ex;">A.辉度按钮;B.聚焦按钮;C.水平位移;D.垂直移位;E.扫描微调旋钮;F.触发电平旋钮</h4>
 
         <h4 style="margin: 10px;text-indent: 35px;">（1）当显示波形线条太粗了，可以尝试使用（）使波形线条调整至适合宽度。</h4>
-        <h4 style="margin: 10px;text-indent: 35px;">（2）在示波器测量1KHz方波校准信号时，读数不够1KHz，可以尝试（）校准。</h4>
+        <h4 style="margin: 10px;text-indent: 35px;">（2）在示波器测量1KHz方波校准信号时，读数不够1KHz,可以尝试（）校准。</h4>
         <h4 style="margin: 10px;text-indent: 35px;">（3）当波形不够稳定不断跳跃时，可以尝试使用（）使波形相对静止。</h4>
         <h4 style="margin: 10px;text-indent: 35px;">（4）在示波器显示波形不够亮时，可以尝试使用（）提高显示波形的亮度。</h4>
 
-        <h4 style="margin: 15px;">答案：{{$e1}} &nbsp;{{$e2}} &nbsp;{{$e3}} &nbsp;{{$e4}}</h4>
+        <h4 style="margin: 15px;">答案:{{$e1}} &nbsp;{{$e2}} &nbsp;{{$e3}} &nbsp;{{$e4}}</h4>
 
         <h4 style="margin: 15px;">2，	利用示波器测量信号频率的优点是（），但不足的是示波器内部时基（），且（）</h4>
         <h4 style="margin: 10px;text-indent: 45px;">A.精度不高</h4>
@@ -267,14 +267,14 @@
         <h4 style="margin: 10px;text-indent: 45px;">C.不能直接读数频率，使用周期读数换算到频率会引入误差</h4>
         <h4 style="margin: 10px;text-indent: 45px;">D. 可以直观的观察出波形</h4>
 
-        <h4 style="margin: 15px;">答案：{{$f1}} &nbsp;{{$f2}} &nbsp;{{$f3}}</h4>
+        <h4 style="margin: 15px;">答案:{{$f1}} &nbsp;{{$f2}} &nbsp;{{$f3}}</h4>
 
         <h4 style="margin: 15px;">3，	使用李萨如图形测量信号频率实验过程中，信号波形选用（）波形；得到闭合稳定的图案时，两个信号的频率比是（）；在两个信号的相位关系变化时，李萨如图形会发生（）。</h4>
         <h4 style="margin: 10px;text-indent: 45px;">A.三角波  B.正弦波  C.方波</h4>
         <h4 style="margin: 10px;text-indent: 45px;">D.整数比  E.无理数之比</h4>
         <h4 style="margin: 10px;text-indent: 45px;">F.跳出示波器窗口  G.旋转</h4>
 
-        <h4 style="margin: 15px;">答案：{{$g1}}&nbsp;{{$g2}}&nbsp;{{$g3}}</h4>
+        <h4 style="margin: 15px;">答案:{{$g1}}&nbsp;{{$g2}}&nbsp;{{$g3}}</h4>
 
         <h3>八、判断题（每题4分，共12分）</h3>
 
@@ -286,7 +286,7 @@
 
         <h4 style="margin: 15px;">答案：{{$x2}}</h4>
 
-        <h4 style="margin: 10px;">3，	在利用李萨如图形测量频率过程中，将示波器时基分度由默认的0.2ms/DIV改为0.1ms/DIV，则李萨如图形的纵横切点数之比会发生变化。</h4>
+        <h4 style="margin: 10px;">3，	在利用李萨如图形测量频率过程中，将示波器时基分度由默认的0.2ms/DIV改为0.1ms/DIV,则李萨如图形的纵横切点数之比会发生变化。</h4>
 
         <h4 style="margin: 15px;">答案：{{$x3}}</h4>
 </body>
