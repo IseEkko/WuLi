@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PdfRequest;
 use App\Http\Requests\StudentRequest;
+use App\Http\Requests\ExperimentRequest;
 use App\Models\Completion;
 use App\Models\Completion11;
 use App\Models\Student;
@@ -16,7 +17,7 @@ class ExperimentController extends Controller
 {
 
 
-    public function student(Request $request)
+    public function student(StudentRequest $request)
 
     {
         $student_name = $request['student_name'];
@@ -38,7 +39,7 @@ class ExperimentController extends Controller
     }
 
 
-    public function completion(Request $request)
+    public function completion(ExperimentRequest $request)
     {
 
         $completion_1 = sprintf("%.3f",$request['completion_1']);
